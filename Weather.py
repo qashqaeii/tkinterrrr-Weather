@@ -2,13 +2,13 @@ import pyowm
 import tkinter as tk
 from tkinter import messagebox
 
-def omw():
+def omw(): #فرستادن درخواست از طریق Api
     api_key = "f70735bded1ab2742724520cf568ec56"#نوش
     owm_obj = pyowm.OWM(api_key)
-    mgr = owm_obj.weather_manager()  # Get the weather manager object
+    mgr = owm_obj.weather_manager()  
     city_name = city_f.get()
 
-    obs = mgr.weather_at_place(city_name).weather  # Retrieve the weather observation
+    obs = mgr.weather_at_place(city_name).weather  
     if obs is not None:
         temp = obs.temperature('celsius')
         status = obs.detailed_status
@@ -25,11 +25,11 @@ def omw():
 
 
 
-# Create a new window
+# ایجاد یک پنجره جدید
 root = tk.Tk()
 root.title("آب و هوا")
 
-# Set the window size and position it in the center of the screen
+# ست کردن سایز پنجره و همچنین ست کردن لوکیشن پنجره در وسط صفحه
 window_width = 150
 window_height = 100
 screen_width = root.winfo_screenwidth()
@@ -38,21 +38,21 @@ x = (screen_width - window_width) // 2
 y = (screen_height - window_height) // 2
 root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
-# Create label for entering city name
+# ساخت لیبل 
 tk.Label(root, text="اسم شهر را وارد کنید").grid(column=1, row=0)
 
-# Create entry box for entering city name
+# ساخت تکست باکس
 city_f = tk.Entry(root, width=20)
 city_f.grid(column=1, row=1)
 
 def on_button_click():
     omw()
 
-# Create button for getting weather information
+# دکمه بررسی آب و هوا
 button = tk.Button(root, text="بررسی آب و هوا", command=on_button_click)
 button.grid(column=1, row=2)
 
-#craetor : qashqaeii.ps4@gmail.com
+#لیبل سازنده : qashqaeii.ps4@gmail.com
 tk.Label(root, text="C r e a t e d By QashQaei © ").grid(column=1, row=5)
 
 root.mainloop()
