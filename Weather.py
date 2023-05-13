@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 def omw():
-    api_key = "f70735bded1ab2742724520cf568ec56"
+    api_key = "f70735bded1ab2742724520cf568ec56"#نوش
     owm_obj = pyowm.OWM(api_key)
     mgr = owm_obj.weather_manager()  # Get the weather manager object
     city_name = city_f.get()
